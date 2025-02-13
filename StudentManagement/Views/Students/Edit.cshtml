@@ -1,0 +1,31 @@
+﻿@using StudentManagement.Models
+@model UserModel
+
+<form asp-action="Edit">
+    <div>
+        <label>Student Name</label>
+        <input type="text" asp-for="FirstName" />
+    </div>
+    <div>
+        <label>Parent Name</label>
+        <input type="text" asp-for="LastName" />
+    </div>
+    <div>
+        <label>Class</label>
+        <select asp-for="ClassId" asp-items="ViewData[" Classes"]"></select>
+    </div>
+    <div>
+        <label>Email</label>
+        <input type="email" asp-for="Email" />
+    </div>
+    <div>
+        <label>Phone</label>
+        <input type="text" asp-for="Phone" />
+    </div>
+    <div>
+        <label>Active</label>
+        <input type="checkbox" asp-for="Active" />
+    </div>
+
+    <button type="submit">Save Changes</button>
+</form>

@@ -1,0 +1,40 @@
+﻿@using StudentManagement.Models
+
+@model IEnumerable<StudentModel>
+
+<form method="post" action="@Url.Action("UpdateActiveStatus")">
+
+    <table>
+        <thead>
+            <tr>
+                <th>Student Name</th>
+                <th>Parent Name</th>
+                <th>Class</th>
+                <th>Parent Email</th>
+                <th>Parent Mobile</th>
+                <th>Active</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var student in Model)
+            {
+                <tr>
+                    <td>@student.StudentName</td>
+                    <td>@student.ParentName</td>
+                    <td>@student.ClassName</td>
+                    <td>@student.ParentEmail</td>
+                    <td>@student.ParentMobile</td>
+                    <td>
+                        <input type="checkbox" @(student.Active ? "checked" : "") />
+                    </td>
+                    <td>
+                        <a href="@Url.Action("Edit", new { id = student.StudentId })">Edit</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <button type="submit">Update Active Status</button>
+</form>
